@@ -28,8 +28,25 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="A simple and efficient todo list application." />
+        <meta name="keywords" content="todo, tasks, productivity, checklist" />
+        <meta name="author" content="Your Name" />
+        <meta name="robots" content="index, follow" />
+        <meta name="google-site-verification" content="your-verification-code" />
         <Meta />
         <Links />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"
+        ></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-XXXXX-Y');
+          `}
+        </script>
       </head>
       <body>
         {children}
