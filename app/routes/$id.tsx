@@ -53,16 +53,16 @@ export default function () {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center p-4">
-      <div className="w-full max-w-lg bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-xl">
+      <div className="w-full max-w-lg bg-white/30 dark:bg-gray-900/40 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/20">
         <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white text-center mb-6">
           Todo List
         </h1>
 
-        <Form method="post" className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-3 rounded-lg shadow-inner">
+        <Form method="post" className="flex items-center gap-2 bg-white/30 dark:bg-gray-800/50 p-3 rounded-lg shadow-inner backdrop-blur-md border border-white/20">
           <input
             type="text"
             name="text"
-            className="flex-1 px-4 py-2 bg-transparent focus:outline-none text-gray-800 dark:text-white"
+            className="flex-1 px-4 py-2 bg-transparent focus:outline-none text-gray-800 dark:text-white placeholder-gray-500"
             placeholder="Add a new task..."
           />
           <button
@@ -79,7 +79,7 @@ export default function () {
           {todos.map((todo) => (
             <li
               key={todo.id}
-              className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md transition-transform transform hover:scale-105"
+              className="flex items-center justify-between p-4 bg-white/30 dark:bg-gray-800/50 rounded-lg shadow-md backdrop-blur-md border border-white/20 transition-transform transform hover:scale-105"
             >
               <Form method="post" className="flex-1 flex items-center gap-2">
                 <input type="hidden" name="id" value={todo.id} />
