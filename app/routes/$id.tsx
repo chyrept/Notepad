@@ -52,34 +52,34 @@ export default function () {
   const { todos } = useLoaderData<typeof loader>();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-700 flex items-center justify-center p-4">
-      <div className="w-full max-w-lg bg-white/40 dark:bg-gray-900/50 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/30 transition-all transform hover:scale-105">
-        <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white text-center mb-6 drop-shadow-lg">
-          Todo List
+    <div className="min-h-screen bg-gradient-to-bl from-teal-500 to-blue-900 flex items-center justify-center p-6">
+      <div className="w-full max-w-xl bg-white/50 dark:bg-gray-800/60 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/40 transition-transform hover:scale-105">
+        <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white text-center mb-6 drop-shadow-md">
+          My Tasks
         </h1>
 
-        <Form method="post" className="flex items-center gap-3 bg-white/40 dark:bg-gray-800/50 p-4 rounded-xl shadow-inner border border-white/30">
+        <Form method="post" className="flex items-center gap-4 bg-white/30 dark:bg-gray-700/50 p-4 rounded-2xl shadow-md border border-white/40">
           <input
             type="text"
             name="text"
-            className="flex-1 px-4 py-2 bg-transparent focus:outline-none text-gray-900 dark:text-white placeholder-gray-500 text-lg"
-            placeholder="Add a new task..."
+            className="flex-1 px-4 py-2 bg-transparent focus:outline-none text-gray-900 dark:text-white placeholder-gray-400 text-lg"
+            placeholder="What needs to be done?"
           />
           <button
             type="submit"
             name="intent"
             value="create"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl font-semibold transition-transform transform hover:scale-110"
+            className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-xl font-semibold transition-transform hover:scale-110 shadow-md"
           >
-            Add
+            ➕
           </button>
         </Form>
 
-        <ul className="mt-6 space-y-3">
+        <ul className="mt-6 space-y-4">
           {todos.map((todo) => (
             <li
               key={todo.id}
-              className="flex items-center justify-between p-4 bg-white/40 dark:bg-gray-800/50 rounded-xl shadow-lg border border-white/30 transition-transform transform hover:scale-105"
+              className="flex items-center justify-between p-4 bg-white/40 dark:bg-gray-700/50 rounded-xl shadow-md border border-white/30 transition-transform hover:scale-105"
             >
               <Form method="post" className="flex-1 flex items-center gap-3">
                 <input type="hidden" name="id" value={todo.id} />
@@ -106,9 +106,9 @@ export default function () {
                   type="submit"
                   name="intent"
                   value="delete"
-                  className="text-red-500 hover:text-red-700 text-xl transition-transform transform hover:scale-125"
+                  className="text-red-500 hover:text-red-700 text-xl transition-transform hover:scale-125"
                 >
-                  ✖
+                  🗑️
                 </button>
               </Form>
             </li>
