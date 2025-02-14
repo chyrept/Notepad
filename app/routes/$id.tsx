@@ -52,34 +52,34 @@ export default function () {
   const { todos } = useLoaderData<typeof loader>();
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 px-4">
-      <div className="max-w-md mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center p-4">
+      <div className="w-full max-w-lg bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-xl">
+        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white text-center mb-6">
           Todo List
         </h1>
 
-        <Form method="post" className="mb-8 flex gap-2">
+        <Form method="post" className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-3 rounded-lg shadow-inner">
           <input
             type="text"
             name="text"
-            className="flex-1 rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white shadow-sm px-4 py-2"
-            placeholder="Add a new todo..."
+            className="flex-1 px-4 py-2 bg-transparent focus:outline-none text-gray-800 dark:text-white"
+            placeholder="Add a new task..."
           />
           <button
             type="submit"
             name="intent"
             value="create"
-            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition"
           >
             Add
           </button>
         </Form>
 
-        <ul className="space-y-2">
+        <ul className="mt-4 space-y-2">
           {todos.map((todo) => (
             <li
               key={todo.id}
-              className="flex items-center gap-2 bg-white dark:bg-gray-800 p-4 rounded-lg shadow"
+              className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md transition-transform transform hover:scale-105"
             >
               <Form method="post" className="flex-1 flex items-center gap-2">
                 <input type="hidden" name="id" value={todo.id} />
@@ -87,18 +87,19 @@ export default function () {
                   type="submit"
                   name="intent"
                   value="toggle"
-                  className="text-gray-500 hover:text-blue-500"
+                  className="flex-1 text-left text-lg font-medium text-gray-800 dark:text-white"
                 >
                   <span
                     className={
-                      todo.completed ? "line-through text-gray-400" : ""
+                      todo.completed
+                        ? "line-through text-gray-500 dark:text-gray-400"
+                        : ""
                     }
                   >
                     {todo.text}
                   </span>
                 </button>
               </Form>
-
               <Form method="post">
                 <input type="hidden" name="id" value={todo.id} />
                 <button
@@ -107,7 +108,7 @@ export default function () {
                   value="delete"
                   className="text-red-500 hover:text-red-700"
                 >
-                  Delete
+                  ✖
                 </button>
               </Form>
             </li>
